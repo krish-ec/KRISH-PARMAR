@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#06050f"/>
+<meta name="description" content="Explore PRAVAHA, a sustainability-focused e-waste platform concept designed to make material value and recycling journeys easier to understand."/>
+<title>PRAVAHA — Project case study | Krish Parmar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script>
+  try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<style>
+  :root{
+    color-scheme:dark;
+    --bg:#06050f; --surface:rgba(22,18,46,.62); --surface-2:rgba(32,26,64,.52);
+    --line:rgba(190,170,255,.15); --line-2:rgba(190,170,255,.32);
+    --text:#f1eeff; --muted:#b4b0d4; --dim:#8884b0;
+    --accent:#a99bff; --accent-2:#f080e0; --green:#a8e3b0; --copper:#e59c73;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --serif:"Instrument Serif",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  [data-theme="light"]{
+    color-scheme:light;
+    --bg:#f4f1ff; --surface:rgba(255,255,255,.72); --surface-2:rgba(238,232,255,.78);
+    --line:rgba(70,45,140,.14); --line-2:rgba(70,45,140,.28);
+    --text:#171233; --muted:#51496f; --dim:#80789f;
+    --accent:#5b45e6; --accent-2:#c026d3; --green:#287742; --copper:#a94e24;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{min-width:320px;overflow-x:hidden;background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .ambient{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 600px at 80% -10%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%),radial-gradient(700px 500px at 0% 65%,color-mix(in srgb,var(--green) 7%,transparent),transparent 70%)}
+  .ambient::after{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(#000,transparent 72%);opacity:.5}
+  .wrap{width:min(1160px,100%);padding-inline:28px;margin-inline:auto}
+  header{position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(16px)}
+  .nav{height:68px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+  .brand{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:600}
+  .badge{width:33px;height:33px;border-radius:10px;background:var(--accent);color:var(--bg);display:grid;place-items:center;font:500 12px var(--mono)}
+  .nav-actions{display:flex;align-items:center;gap:12px}
+  .back,.theme{height:40px;border:1px solid var(--line-2);border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 13px;color:var(--muted);font-size:13px;transition:color .2s,border-color .2s,background .2s}
+  .back:hover,.theme:hover{color:var(--text);border-color:var(--accent);background:var(--surface)}
+  .back svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .theme{width:40px;padding:0;font-size:17px}
+  [data-theme="dark"] .sun,[data-theme="light"] .moon{display:none}
+  .intro{min-height:calc(90svh - 68px);display:grid;align-content:center;padding-block:80px 64px}
+  .eyebrow{display:flex;align-items:center;gap:10px;color:var(--green);font:11px var(--mono);letter-spacing:.15em;text-transform:uppercase}
+  .eyebrow::before{content:"";width:25px;height:1px;background:currentColor}
+  h1{max-width:950px;margin-top:23px;font-size:clamp(3.5rem,10vw,8.6rem);line-height:.9;letter-spacing:-.075em;font-weight:500}
+  h1 span{display:block;color:var(--green);font-family:var(--serif);font-weight:400;font-style:italic;letter-spacing:-.045em}
+  .intro-copy{max-width:690px;margin-top:30px;color:var(--muted);font-size:clamp(1rem,1.5vw,1.15rem)}
+  .intro-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
+  .tag{padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font:11px var(--mono)}
+  .scroll-cue{display:flex;align-items:center;gap:12px;margin-top:53px;color:var(--dim);font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+  .scroll-cue i{display:block;width:46px;height:1px;background:var(--line-2)}
+  .story-run{height:800vh;position:relative}
+  .story-stage{height:calc(100svh - 68px);min-height:570px;position:sticky;top:68px;overflow:hidden;border-block:1px solid var(--line);background:color-mix(in srgb,var(--bg) 76%,transparent)}
+  .story-top{height:66px;position:absolute;z-index:2;inset:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding-inline:max(28px,calc((100vw - 1160px)/2 + 28px));border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(10px)}
+  .story-label{color:var(--dim);font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase}
+  .story-status{display:flex;align-items:center;gap:10px;color:var(--muted);font:11px var(--mono)}
+  .progress{width:100px;height:2px;background:var(--line-2);overflow:hidden}
+  .progress b{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--green),var(--copper));transform:scaleX(0);transform-origin:left}
+  .story-track{display:flex;height:100%;width:max-content;will-change:transform;transform:translate3d(0,0,0)}
+  .panel{width:100vw;height:100%;flex:none;display:grid;grid-template-columns:1fr .9fr;align-items:center;gap:clamp(30px,7vw,110px);padding:92px max(7vw,calc((100vw - 1160px)/2 + 28px)) 66px}
+  .panel-copy{max-width:570px}
+  .number{color:var(--copper);font:12px var(--mono);letter-spacing:.12em}
+  .panel h2{font-size:clamp(2.25rem,5.2vw,5.25rem);line-height:.99;letter-spacing:-.065em;font-weight:500;margin:18px 0 20px}
+  .panel h2 em{font-family:var(--serif);font-weight:400;color:var(--green)}
+  .panel-copy>p{max-width:520px;color:var(--muted);font-size:clamp(.94rem,1.25vw,1.08rem)}
+  .panel-list{display:grid;gap:13px;margin-top:25px}
+  .panel-list li{display:grid;grid-template-columns:24px 1fr;gap:10px;color:var(--muted);font-size:14px}
+  .panel-list li::before{content:"↗";color:var(--green);font-family:var(--mono)}
+  .art{position:relative;min-height:350px;display:grid;place-items:center;border:1px solid var(--line);border-radius:24px;background:radial-gradient(ellipse at center,color-mix(in srgb,var(--accent) 11%,transparent),transparent 68%),var(--surface);overflow:hidden}
+  .art::before,.art::after{content:"";position:absolute;border:1px solid var(--line);border-radius:50%;width:76%;aspect-ratio:1}
+  .art::after{width:53%;border-style:dashed;opacity:.65}
+  .orbit{position:relative;z-index:1;width:68%;aspect-ratio:1;border:1px solid color-mix(in srgb,var(--green) 45%,transparent);border-radius:50%;display:grid;place-items:center}
+  .orbit-center{width:37%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:linear-gradient(140deg,color-mix(in srgb,var(--green) 24%,var(--surface)),color-mix(in srgb,var(--copper) 24%,var(--surface)));color:var(--green);font:clamp(2rem,5vw,4.5rem) var(--serif);font-style:italic}
+  .node{position:absolute;display:grid;place-items:center;width:55px;height:55px;border:1px solid var(--line-2);border-radius:17px;background:var(--bg);color:var(--green);font:10px var(--mono);box-shadow:0 10px 34px rgba(0,0,0,.16)}
+  .node.one{top:0;left:calc(50% - 27px)}.node.two{right:-22px;bottom:13%}.node.three{left:-22px;bottom:13%}
+  .art-note{position:absolute;bottom:20px;left:22px;color:var(--dim);font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+  .signal-list{position:relative;z-index:1;width:min(80%,410px);display:grid;gap:12px}
+  .signal{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:13px;padding:14px 15px;border:1px solid var(--line);border-radius:13px;background:var(--bg)}
+  .signal b{color:var(--green);font:12px var(--mono)}.signal span{font-size:13px;font-weight:500}.signal small{color:var(--dim);font:10px var(--mono)}
+  .journey{position:relative;z-index:1;width:min(88%,430px);display:grid;gap:0}
+  .journey::before{content:"";position:absolute;left:16px;top:17px;bottom:17px;width:1px;background:linear-gradient(var(--green),var(--copper),var(--line))}
+  .journey li{position:relative;display:grid;grid-template-columns:34px 1fr;gap:13px;padding:9px 0;color:var(--muted);font-size:13px}
+  .journey li i{z-index:1;width:33px;height:33px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;background:var(--bg);color:var(--green);font:10px var(--mono);font-style:normal}
+  .journey li b{display:block;color:var(--text);font-size:13px}
+  .journey li span{display:block;color:var(--dim);font-size:11px}
+  .roles{position:relative;z-index:1;width:min(88%,440px);display:grid;gap:14px}
+  .role{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--bg)}
+  .role h3{font-size:15px;font-weight:600}.role p{margin-top:5px;color:var(--muted);font-size:12px}
+  .role-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.role-head span{color:var(--green);font:10px var(--mono)}
+  .role-bars{display:flex;gap:6px;margin-top:16px}.role-bars i{height:4px;flex:1;border-radius:3px;background:var(--line-2)}.role-bars i:first-child{background:var(--green)}
+  .principles{position:relative;z-index:1;width:min(90%,450px);display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .principle{min-height:112px;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+  .principle b{display:block;color:var(--green);font:11px var(--mono);margin-bottom:12px}.principle span{color:var(--muted);font-size:12px}
+  .prototype-note{margin-top:26px;padding:13px 15px;border-left:2px solid var(--copper);background:color-mix(in srgb,var(--copper) 7%,transparent);color:var(--muted);font-size:12px}
+  .story-controls{position:absolute;z-index:3;right:max(28px,calc((100vw - 1160px)/2 + 28px));bottom:19px;display:flex;align-items:center;gap:8px}
+  .story-controls button{height:38px;min-width:42px;border:1px solid var(--line-2);border-radius:10px;background:var(--surface);color:var(--muted);cursor:pointer}
+  .story-controls button:hover:not(:disabled){color:var(--text);border-color:var(--accent)}
+  .story-controls button:disabled{opacity:.35;cursor:default}
+  .story-controls .hint{padding-right:10px;color:var(--dim);font:10px var(--mono)}
+  .outro{min-height:65svh;display:grid;align-content:center;padding-block:90px}
+  .outro h2{max-width:800px;margin-top:18px;font-size:clamp(2.5rem,7vw,6.4rem);line-height:.96;letter-spacing:-.07em;font-weight:500}
+  .outro h2 em{font-family:var(--serif);font-weight:400;color:var(--green)}
+  .outro p{max-width:640px;margin-top:20px;color:var(--muted)}
+  .outro-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .button{min-height:45px;padding:0 17px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid var(--line-2);font-size:13px;font-weight:500;transition:transform .2s,border-color .2s,background .2s}
+  .button:hover{transform:translateY(-2px);border-color:var(--accent);background:var(--surface)}
+  .button.primary{background:var(--green);border-color:var(--green);color:var(--bg)}
+  footer{border-top:1px solid var(--line);padding:23px 0;color:var(--dim);font-size:12px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  @media(max-width:760px){
+    .wrap{padding-inline:21px}.intro{min-height:78svh;padding-block:65px}.scroll-cue{margin-top:36px}
+    .story-run{height:auto}.story-stage{height:auto;min-height:0;position:relative;top:auto;overflow:visible}
+    .story-top{position:relative;height:55px;padding-inline:21px}
+    .story-track{width:100%;height:auto;display:block;transform:none!important}
+    .panel{width:100%;height:auto;min-height:0;grid-template-columns:1fr;gap:22px;padding:66px 21px 50px;border-bottom:1px solid var(--line)}
+    .panel h2{font-size:clamp(2.5rem,12vw,4.3rem);max-width:600px}
+    .art{min-height:290px;grid-row:1}.art-note{font-size:9px}
+    .story-controls{display:none}.progress{width:70px}
+    .outro{min-height:0;padding-block:90px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.001ms!important;animation-duration:.001ms!important}
+    .story-run{height:auto}.story-stage{height:auto;min-height:0;position:relative;top:auto;overflow:visible}
+    .story-top{position:relative}.story-track{width:100%;height:auto;display:block;transform:none!important}
+    .panel{width:100%;height:auto;min-height:70vh;border-bottom:1px solid var(--line)}
+    .story-controls{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="portfolio%20(1).html#home" aria-label="Back to Krish Parmar's portfolio"><span class="badge">KP</span><span>Krish Parmar <span aria-hidden="true">/</span> Case study</span></a>
+    <div class="nav-actions">
+      <a class="back" href="portfolio%20(1).html#projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6M9 12h12"/></svg>All projects</a>
+      <button class="theme" id="theme" type="button" aria-label="Toggle light and dark theme" title="Toggle theme"><span class="moon" aria-hidden="true">☾</span><span class="sun" aria-hidden="true">☼</span></button>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="intro wrap" aria-labelledby="page-title">
+    <p class="eyebrow">Product concept · Circular economy</p>
+    <h1 id="page-title">PRAVAHA<span>turning e-waste into traceable value.</span></h1>
+    <p class="intro-copy">A sustainability-focused platform concept exploring a clearer journey from electronic scrap to responsible recycling—designed around the people who collect and process it.</p>
+    <div class="intro-meta" aria-label="Project details">
+      <span class="tag">Smart India Hackathon entry</span><span class="tag">Product design &amp; front-end</span><span class="tag">Interactive demo prototype</span><span class="tag">HTML · CSS · JavaScript</span><span class="tag">English · Hindi · Marathi</span>
+    </div>
+    <p class="scroll-cue"><i></i>Scroll to follow the material journey <span aria-hidden="true">↓</span></p>
+  </section>
+
+  <section class="story-run" id="story" aria-label="PRAVAHA project story">
+    <div class="story-stage">
+      <div class="story-top">
+        <span class="story-label">PRAVAHA / Project story</span>
+        <span class="story-status"><span id="chapter">01 / 08</span><span class="progress" role="progressbar" aria-label="Case study progress" aria-valuemin="1" aria-valuemax="8" aria-valuenow="1"><b id="progress-fill"></b></span></span>
+      </div>
+      <div class="story-track" id="story-track">
+        <article class="panel" aria-labelledby="chapter-1">
+          <div class="panel-copy"><span class="number">01 — THE OPPORTUNITY</span><h2 id="chapter-1">A valuable resource, <em>hard to navigate.</em></h2><p>E-waste can contain recoverable materials, but the route from collection to recycling may feel fragmented. PRAVAHA explores how a digital product could make the process easier to understand and coordinate.</p><ul class="panel-list"><li>Price uncertainty makes it harder to judge a fair offer.</li><li>Finding a suitable recycler can take extra effort.</li><li>Handover details and material journeys can be difficult to follow.</li></ul></div>
+          <div class="art" aria-hidden="true"><div class="orbit"><div class="orbit-center">flow</div><span class="node one">SCRAP</span><span class="node two">VALUE</span><span class="node three">REUSE</span></div><span class="art-note">A concept for a clearer material journey</span></div>
+        </article>
+        <article class="panel" aria-labelledby="chapter-2">
+          <div class="panel-copy"><span class="number">02 — DISCOVERY</span><h2 id="chapter-2">Start with <em>two perspectives.</em></h2><p>The concept is shaped around the different needs of collectors and recyclers. Instead of treating them as one audience, it explores separate experiences connected by shared material information.</p><ul class="panel-list"><li>How might collectors identify scrap and understand an indicative value?</li><li>What information could help recyclers review an incoming batch?</li><li>How can language, simple interactions and low-connectivity contexts be considered?</li></ul></div>
+          <div class="art" aria-hidden="true"><div class="signal-list"><div class="signal"><b>01</b><span>Collector perspective</span><small>ACCESS</small></div><div class="signal"><b>02</b><span>Material information</span><small>CLARITY</small></div><div class="signal"><b>03</b><span>Recycler perspective</span><small>OPERATIONS</small></div><div class="signal"><b>04</b><span>Traceable handover</span><small>TRUST</small></div></div><span class="art-note">Design questions, not user-study findings</span></div>
+        </article>
+        <article class="panel" aria-labelledby="chapter-3">
+          <div class="panel-copy"><span class="number">03 — THE PRODUCT JOURNEY</span><h2 id="chapter-3">From scrap to a <em>clearer next step.</em></h2><p>A seven-step journey gives the experience a simple mental model. Each stage makes the next action visible, while keeping the transfer of material at the center.</p><ul class="panel-list"><li>Identify an item and explore its material category.</li><li>Review an illustrative value range and possible recycler match.</li><li>Arrange a handover, then represent its record and onward journey.</li></ul></div>
+          <div class="art" aria-hidden="true"><ol class="journey"><li><i>01</i><div><b>Identify</b><span>Photo and suggested category</span></div></li><li><i>02</i><div><b>Explore value</b><span>Indicative price range</span></div></li><li><i>03</i><div><b>Find a recycler</b><span>Review a suitable match</span></div></li><li><i>04</i><div><b>Arrange handover</b><span>Pickup or drop-off concept</span></div></li><li><i>05</i><div><b>Record &amp; trace</b><span>QR passport concept</span></div></li></ol><span class="art-note">Conceptual journey · not live transactions</span></div>
+        </article>
+        <article class="panel" aria-labelledby="chapter-4">
+          <div class="panel-copy"><span class="number">04 — TWO CONNECTED EXPERIENCES</span><h2 id="chapter-4">Different roles. <em>One shared flow.</em></h2><p>Collectors and recyclers need different information. The interface concept separates their tasks while keeping material details and handover status connected across the experience.</p><ul class="panel-list"><li>Collector view: identify, understand, arrange and track.</li><li>Recycler view: review incoming material and batch information.</li><li>Scanner, price discovery and material-recovery visuals make the concept tangible.</li><li>Admin concepts support a consistent platform experience.</li></ul></div>
+          <div class="art" aria-hidden="true"><div class="roles"><div class="role"><div class="role-head"><h3>Collector portal</h3><span>COLLECT / SELL</span></div><p>Guided identification, value context and next steps.</p><div class="role-bars"><i></i><i></i><i></i><i></i></div></div><div class="role"><div class="role-head"><h3>Recycler portal</h3><span>REVIEW / PROCESS</span></div><p>Incoming material, batch details and request actions.</p><div class="role-bars"><i></i><i></i><i></i><i></i></div></div><span class="art-note">Separate needs, shared material record</span></div></div>
+        </article>
+        <article class="panel" aria-labelledby="chapter-5">
+          <div class="panel-copy"><span class="number">05 — DESIGNING FOR ACCESS</span><h2 id="chapter-5">Make the experience feel <em>approachable.</em></h2><p>Visual cues and focused actions help introduce a complex process without overloading the screen. The prototype explores inclusive choices as part of the experience—not as an afterthought.</p><ul class="panel-list"><li>English, Hindi and Marathi interface options.</li><li>Responsive layouts and light and dark themes.</li><li>Icon-first patterns and voice-input ideas for exploration.</li><li>Offline tolerance considered as a requirement, not a verified capability.</li></ul></div>
+          <div class="art" aria-hidden="true"><div class="principles"><div class="principle"><b>01 / LANGUAGE</b><span>EN · हिन्दी · मराठी</span></div><div class="principle"><b>02 / CLARITY</b><span>One clear next action</span></div><div class="principle"><b>03 / FLEXIBILITY</b><span>Light and dark themes</span></div><div class="principle"><b>04 / RESPONSIVE</b><span>Layouts for varied screens</span></div></div><span class="art-note">Inclusive design directions explored in the demo</span></div>
+        </article>
+        <article class="panel" aria-labelledby="chapter-6">
+          <div class="panel-copy"><span class="number">06 — IDENTITY WITH INTENT</span><h2 id="chapter-6">A name that keeps things <em>in flow.</em></h2><p>PRAVAHA draws on the Sanskrit/Hindi word “प्रवाह,” associated with flow or a continuous current. It reflects the idea of making the movement of materials—and the value they carry—easier to follow.</p><ul class="panel-list"><li>Green points to sustainability and resource recovery.</li><li>Copper connects the visual language to recoverable electronic materials.</li><li>A leaf motif signals environmental responsibility and circular use.</li><li>“Your waste has a value” gives the concept a clear, human message.</li></ul></div>
+          <div class="art" aria-hidden="true"><div class="orbit"><div class="orbit-center">प्रवाह</div><span class="node one">FLOW</span><span class="node two">COPPER</span><span class="node three">RENEW</span></div><span class="art-note">Brand idea · continuous movement</span></div>
+        </article>
+        <article class="panel" aria-labelledby="chapter-7">
+          <div class="panel-copy"><span class="number">07 — WHAT I LEARNED</span><h2 id="chapter-7">Think beyond a screen. <em>Design the system.</em></h2><p>PRAVAHA pushed me to connect product purpose, interface decisions and a shared workflow. It also reinforced the importance of being precise about what a prototype demonstrates—and what still needs validation.</p><ul class="panel-list"><li>Translate a broad problem into a structured user journey.</li><li>Organize information around distinct user roles.</li><li>Use interaction and visuals to explain unfamiliar ideas.</li><li>Separate design intent from production-ready functionality.</li></ul></div>
+          <div class="art" aria-hidden="true"><div class="signal-list"><div class="signal"><b>01</b><span>Problem framing</span><small>DEFINE</small></div><div class="signal"><b>02</b><span>Role-based workflow</span><small>STRUCTURE</small></div><div class="signal"><b>03</b><span>Accessible interface</span><small>DESIGN</small></div><div class="signal"><b>04</b><span>Prototype boundaries</span><small>VALIDATE</small></div></div><span class="art-note">A product-design exploration</span></div>
+        </article>
+        <article class="panel" aria-labelledby="chapter-8">
+          <div class="panel-copy"><span class="number">08 — NEXT STEPS</span><h2 id="chapter-8">A promising concept needs <em>real-world proof.</em></h2><p>The next phase would focus on learning from collectors and recyclers, validating the proposed workflow and building the foundations for a dependable service.</p><ul class="panel-list"><li>Interview users and test the flows on real devices.</li><li>Verify local pricing sources and recycler information.</li><li>Explore secure accounts, persistent records and reliable QR tracking.</li><li>Measure successful handovers and material traceability in a pilot.</li></ul><div class="prototype-note"><strong>Prototype note:</strong> AI identification, live recycler matching, payments, offline behavior and verified environmental impact are not claimed as production capabilities.</div></div>
+          <div class="art" aria-hidden="true"><div class="orbit"><div class="orbit-center">next</div><span class="node one">TEST</span><span class="node two">BUILD</span><span class="node three">LEARN</span></div><span class="art-note">Validate the concept before scaling it</span></div>
+        </article>
+      </div>
+      <div class="story-controls" aria-label="Story navigation"><span class="hint">SCROLL TO EXPLORE</span><button type="button" id="prev" aria-label="Previous story panel" disabled>←</button><button type="button" id="next" aria-label="Next story panel">→</button></div>
+    </div>
+  </section>
+
+  <section class="outro wrap">
+    <p class="eyebrow">PRAVAHA · Your waste has a value</p>
+    <h2>Make the journey visible. <em>Keep value in flow.</em></h2>
+    <p>PRAVAHA is my exploration of how thoughtful product design and front-end development could help make e-waste easier to understand, coordinate and trace.</p>
+    <div class="outro-actions"><a class="button primary" href="portfolio%20(1).html#projects">Back to selected work</a><a class="button" href="portfolio%20(1).html#contact">Get in touch</a></div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© <span id="year"></span> Krish Parmar</span><a href="portfolio%20(1).html">Portfolio home ↗</a></div></footer>
+<script>
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const themeButton = document.querySelector('#theme');
+themeButton.addEventListener('click', () => {
+  const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = nextTheme;
+  document.querySelector('meta[name="theme-color"]').content = nextTheme === 'dark' ? '#06050f' : '#f4f1ff';
+  try { localStorage.setItem('theme', nextTheme); } catch (error) { console.warn('Could not save the theme preference.', error); }
+});
+document.querySelector('#year').textContent = new Date().getFullYear();
+
+const story = document.querySelector('#story');
+const track = document.querySelector('#story-track');
+const panels = [...track.querySelectorAll('.panel')];
+const chapter = document.querySelector('#chapter');
+const progress = document.querySelector('.progress');
+const progressFill = document.querySelector('#progress-fill');
+const previous = document.querySelector('#prev');
+const next = document.querySelector('#next');
+let framePending = false;
+
+function updateStory() {
+  framePending = false;
+  if (matchMedia('(max-width: 760px)').matches || reduceMotion) return;
+  const rect = story.getBoundingClientRect();
+  const scrollDistance = story.offsetHeight - innerHeight;
+  const amount = scrollDistance > 0 ? Math.min(1, Math.max(0, -rect.top / scrollDistance)) : 0;
+  const maxOffset = Math.max(0, track.scrollWidth - innerWidth);
+  track.style.transform = `translate3d(${-amount * maxOffset}px,0,0)`;
+  const activePanel = Math.min(panels.length - 1, Math.round(amount * (panels.length - 1)));
+  chapter.textContent = `${String(activePanel + 1).padStart(2, '0')} / ${String(panels.length).padStart(2, '0')}`;
+  progress.setAttribute('aria-valuemax', String(panels.length));
+  progress.setAttribute('aria-valuenow', String(activePanel + 1));
+  progressFill.style.transform = `scaleX(${amount})`;
+  previous.disabled = activePanel === 0;
+  next.disabled = activePanel === panels.length - 1;
+}
+function scheduleUpdate() {
+  if (!framePending) {
+    framePending = true;
+    requestAnimationFrame(updateStory);
+  }
+}
+function goToPanel(index) {
+  if (matchMedia('(max-width: 760px)').matches || reduceMotion) {
+    panels[Math.max(0, Math.min(index, panels.length - 1))].scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    return;
+  }
+  const storyTop = story.getBoundingClientRect().top + scrollY;
+  const maxScroll = story.offsetHeight - innerHeight;
+  const amount = index / (panels.length - 1);
+  scrollTo({ top: storyTop + amount * maxScroll, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+previous.addEventListener('click', () => {
+  const index = Math.max(0, (Number(progress.getAttribute('aria-valuenow')) || 1) - 2);
+  goToPanel(index);
+});
+next.addEventListener('click', () => {
+  const index = Math.min(panels.length - 1, (Number(progress.getAttribute('aria-valuenow')) || 1));
+  goToPanel(index);
+});
+addEventListener('scroll', scheduleUpdate, { passive: true });
+addEventListener('resize', scheduleUpdate);
+updateStory();
+</script>
+</body>
+</html>
