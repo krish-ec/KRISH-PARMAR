@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#080a10"/>
+<meta name="description" content="CloudForge is an AI-guided, gamified AWS learning lab. Explore its cloud incident story and live experience."/>
+<title>CloudForge — Cloud learning case study | Krish Parmar</title>
+<link rel="icon" type="image/png" href="brand-hand-flower.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet"/>
+<script src="js/theme.js"></script>
+<link rel="stylesheet" href="css/cloudforge.css"/>
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html#home" aria-label="Back to Krish Parmar's portfolio"><img class="brand-mark" src="brand-hand-flower.png" alt=""/><span>Krish Parmar <span aria-hidden="true">/</span> Case study</span></a>
+    <div class="nav-actions"><a class="back" href="index.html#projects">All projects <span aria-hidden="true">↗</span></a><button class="theme" id="theme" type="button" aria-label="Toggle light and dark theme" title="Toggle theme"><span class="moon" aria-hidden="true">☾</span><span class="sun" aria-hidden="true">☼</span></button></div>
+  </div>
+</header>
+<main>
+  <section class="hero wrap" aria-labelledby="page-title">
+    <p class="eyebrow"><span class="pulse"></span>AI-powered cloud learning lab</p>
+    <h1 id="page-title">CLOUD<br/><em>FORGE</em></h1>
+    <p class="hero-lead">Build. Break. Debug. Master AWS.</p>
+    <p class="hero-copy">CloudForge turns cloud learning into an investigation. Learners assemble real-world architectures, face simulated failures, and reason their way to a fix—with an AI mentor that guides instead of giving away the answer.</p>
+    <div class="tags"><span>Interactive AWS scenarios</span><span>AI-guided learning</span><span>Gamified quests</span><span>Cloud architecture</span></div>
+    <a class="scroll-cue" href="#incident"><span class="scroll-line"></span>Scroll to enter the incident <span aria-hidden="true">↓</span></a>
+    <div class="hero-orbit" aria-hidden="true"><div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div><div class="orbit-core">CF</div><span class="orbit-label label-api">API GATEWAY</span><span class="orbit-label label-lambda">LAMBDA</span><span class="orbit-label label-data">DYNAMODB</span></div>
+  </section>
+
+  <section class="incident" id="incident" aria-label="CloudForge case study: investigate a cloud incident">
+    <div class="incident-stage">
+      <div class="stage-head"><span>CF / INCIDENT RESPONSE SIMULATOR</span><span><i class="live-dot"></i><b id="stage-status">SYSTEM NOMINAL</b></span></div>
+      <div class="stage-progress" role="progressbar" aria-label="Incident story progress" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><i id="progress-fill"></i></div>
+      <div class="story-layout">
+        <div class="story-copy">
+          <div class="story-count"><span id="story-number">01</span><span> / 06</span><span class="count-rule"></span><span id="story-kicker">THE MISSION</span></div>
+          <h2 id="story-title">Cloud isn’t a quiz.<br/><em>It’s a system.</em></h2>
+          <p id="story-body">Start with a working architecture. Then follow the evidence when something breaks. CloudForge makes the reasoning—not memorizing service names—the main event.</p>
+          <div class="story-tags" id="story-tags"><span>LEARN</span><span>BUILD</span><span>INVESTIGATE</span></div>
+        </div>
+        <div class="console" id="console">
+          <div class="console-top"><div class="window-dots"><i></i><i></i><i></i></div><span id="console-name">CLOUDLAB / TOPOLOGY</span><span class="console-live"><i></i>LIVE</span></div>
+          <div class="topology" id="topology" data-scene="mission">
+            <div class="topo-backdrop" aria-hidden="true"></div>
+            <div class="topo-node node-user"><span class="node-icon">◎</span><b>LEARNER</b><small>REQUEST</small></div>
+            <div class="topo-node node-api"><span class="node-icon">◇</span><b>API GATEWAY</b><small>HTTPS · 200 OK</small></div>
+            <div class="topo-node node-lambda"><span class="node-icon">λ</span><b>LAMBDA</b><small>EXECUTION ROLE</small></div>
+            <div class="topo-node node-db"><span class="node-icon">▤</span><b>DYNAMODB</b><small id="db-state">TABLE ONLINE</small></div>
+            <div class="connector con-user-api"><i></i></div><div class="connector con-api-lambda"><i></i></div><div class="connector con-lambda-db"><i></i></div>
+            <div class="error-packet" id="error-packet">403</div>
+            <div class="terminal">
+              <div class="terminal-head"><span id="terminal-title">cloudforge@lab:~</span><span>▴</span></div>
+              <div id="terminal-lines"><p><b>$</b> connect --environment aws-lab</p><p class="ok"><b>✓</b> Isolated lab environment ready</p><p><b>$</b> healthcheck --all</p><p class="ok"><b>✓</b> API · Lambda · DynamoDB operational</p><p class="cursor-line"><b>$</b> <i></i></p></div>
+            </div>
+            <div class="incident-badge" id="incident-badge"><span>⚠</span><b>INCIDENT DETECTED</b><small>AccessDeniedException</small></div>
+            <div class="mentor-card" id="mentor-card"><span>CF / AI MENTOR</span><p>What evidence points to a permission issue?</p><i>GUIDANCE, NOT ANSWERS</i></div>
+            <div class="xp-card" id="xp-card"><span>QUEST COMPLETE</span><b>+250 XP</b><small>IAM DETECTIVE · UNLOCKED</small></div>
+            <div class="topo-stamp">CLOUDFORGE / CLOUDLAB<br/>SIMULATED ENVIRONMENT</div>
+          </div>
+        </div>
+      </div>
+      <div class="stage-foot"><span>SCROLL TO TRACE THE FAILURE</span><span><b id="stage-index">01</b> — 06</span></div>
+      <div class="story-controls"><button id="story-prev" type="button" aria-label="Previous story chapter" disabled>←</button><button id="story-next" type="button" aria-label="Next story chapter">→</button></div>
+    </div>
+  </section>
+
+  <section class="principles wrap">
+    <div class="section-heading"><p class="eyebrow">Beyond the incident</p><h2>Learning that feels like <em>doing.</em></h2><p>CloudForge brings practical cloud concepts, evidence-led debugging, and a little game energy into one guided experience.</p></div>
+    <div class="principle-grid">
+      <article><span>01 / SCENARIOS</span><h3>Practice in context</h3><p>Quests frame cloud concepts as systems to explore, with incidents that make architecture and service relationships tangible.</p></article>
+      <article><span>02 / GUIDANCE</span><h3>Think it through</h3><p>The mentor nudges learners toward useful evidence and stronger explanations instead of simply revealing the fix.</p></article>
+      <article><span>03 / MOMENTUM</span><h3>Make progress visible</h3><p>XP, badges, streaks, and challenge levels turn each investigated system into a clear next step.</p></article>
+    </div>
+    <div class="outro"><div><p class="eyebrow">Enter the CloudLab</p><h2>Ready to find<br/><em>the failure?</em></h2></div><div class="outro-actions"><a class="button primary" href="https://cloud-forge-umber.vercel.app/" target="_blank" rel="noopener noreferrer">Launch CloudForge <span aria-hidden="true">↗</span></a><a class="button" href="index.html#projects">Back to all projects <span aria-hidden="true">↗</span></a></div></div>
+  </section>
+</main>
+<footer class="wrap"><span>CloudForge · AI-powered cloud learning lab</span><a href="index.html#home">Krish Parmar · Portfolio</a></footer>
+<script src="js/cloudforge.js"></script>
+</body>
+</html>
