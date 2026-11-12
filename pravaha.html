@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-cursor-theme="pravaha">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pravaha — Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/cursor.css">
+<link rel="stylesheet" href="css/project-chrome.css">
+<style>
+:root{--bg:#0a2118;--fg:#f1ffe9;--ac:#c9ff5c;--pe:#ffb59e;--mo:#14392a;--mu:#9fc7ae;--bd:rgba(241,255,233,.3)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--fg);font-family:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+@media (hover:hover){body,a,button{cursor:none}}
+.cur{position:fixed;left:0;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--ac);pointer-events:none;z-index:999;transition:width .3s,height .3s,margin .3s,opacity .3s}
+.cur.big{width:68px;height:68px;margin:-34px 0 0 -34px;opacity:.8}
+@media (hover:none){.cur{display:none}}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:100;mix-blend-mode:difference;color:#fff;font-weight:600}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 4vw}
+.nav-links{display:flex;gap:28px}.nav-links a,.brand{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-cta{border:1.5px solid #fff;border-radius:99px;padding:8px 18px}
+@media (max-width:800px){.nav-links{display:none}}
+:focus-visible{outline:3px solid var(--ac);outline-offset:4px}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}.ch{display:inline-block;font-variation-settings:'wght' 500;will-change:transform}.w{display:inline-block}
+.eyebrow,.sl{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.mb{border:1.5px solid var(--bd);border-radius:18px;padding:12px 18px}.mb span{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.65}.mb strong{font-size:20px}
+.hm{display:flex;gap:12px;flex-wrap:wrap}
+.tc{display:grid;grid-template-columns:1fr 1fr;gap:6vw;padding:18vh 4vw}
+.tc h2{font-size:clamp(34px,5vw,84px);line-height:.95;letter-spacing:-.045em;font-weight:600;margin-top:2vh}
+.copy{font-size:clamp(17px,1.7vw,26px);line-height:1.3;align-self:end;opacity:.8}
+.pb{display:inline-grid;place-items:center;padding:22px 42px;border-radius:99px;font-weight:700;font-size:clamp(17px,1.6vw,22px);will-change:transform}
+.cta h3{font-size:clamp(34px,6.4vw,110px);line-height:.92;letter-spacing:-.05em;font-weight:600;max-width:18ch}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:28px 4vw;font-weight:500}footer a:hover{color:var(--ac)}
+@media (max-width:800px){.tc{grid-template-columns:1fr;gap:4vh;padding:12vh 4vw}}
+
+.hero{position:relative;min-height:100svh;padding:16vh 4vw 5vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+#flow{position:absolute;inset:0;width:100%;height:100%}.hero>*:not(canvas){position:relative}
+.hero .eyebrow{color:var(--ac)}
+.hero h1{font-size:clamp(60px,19vw,360px);line-height:.8;letter-spacing:-.06em;font-weight:500;text-transform:uppercase;margin-top:3vh}
+.hrow{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:4vh}
+.lead{max-width:32ch;font-size:clamp(17px,1.8vw,27px);line-height:1.22}
+.show{min-height:100svh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:4vw;padding:12vh 4vw 8vh;overflow:hidden}
+.stage{position:relative;width:min(84vw,620px);aspect-ratio:1;margin:auto}
+.ring{position:absolute;border-radius:50%}.out{inset:6%;border:1.5px dashed rgba(201,255,92,.45)}.in{inset:26%;border:1.5px solid rgba(255,181,158,.4)}
+.arm{position:absolute;inset:0}
+.mc{position:absolute;left:50%;top:0;display:flex;gap:10px;align-items:center;background:var(--mo);border:1px solid rgba(201,255,92,.3);border-radius:16px;padding:10px 14px;white-space:nowrap;font-size:clamp(11px,1.4vw,15px)}
+.mc i{font-style:normal;color:var(--ac);font-size:1.5em}.mc small{display:block;color:var(--mu)}
+.hub{position:absolute;inset:36%;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--ac),#3f9c3a 60%,#0a2118);display:grid;place-items:center;text-align:center;color:#0a2118;z-index:2;box-shadow:0 0 80px rgba(201,255,92,.35)}
+.hub strong{display:block;font-size:clamp(18px,3vw,32px);letter-spacing:-.04em}.hub small{font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.side .sl{color:var(--ac)}.side h3{font-size:clamp(28px,3.6vw,56px);line-height:.98;letter-spacing:-.04em;margin:2vh 0}.side p{color:var(--mu);font-size:clamp(16px,1.4vw,21px);line-height:1.35;max-width:34ch}
+.pr{display:flex;gap:12px;align-items:center;margin-top:4vh;padding:14px 18px;border:1.5px solid var(--bd);border-radius:99px;width:max-content;max-width:100%;font-weight:600}.pr i{font-style:normal;color:var(--ac)}
+.tc .sl{color:var(--ac)}
+.jw{height:100svh;overflow:hidden;display:flex;align-items:center;background:var(--mo)}
+.jt{display:flex;gap:3vw;padding:0 6vw;align-items:center;will-change:transform}
+.jh{flex:none;width:min(40vw,420px)}.jh .sl{color:var(--ac)}.jh h2{font-size:clamp(40px,6vw,100px);line-height:.9;letter-spacing:-.05em;font-weight:600;margin-top:2vh}
+.jc{flex:none;width:min(72vw,500px);aspect-ratio:4/5;max-height:78svh;border-radius:28px;padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;color:#0a2118;background:var(--ac)}
+.jc:nth-child(3){background:var(--pe)}.jc:nth-child(4){background:#8be0a4}.jc:nth-child(5){background:#f1ffe9}
+.jc small{font-weight:700;letter-spacing:.12em}.jc h3{font-size:clamp(34px,4.4vw,64px);line-height:.92;letter-spacing:-.05em;position:relative}.jc p{font-size:clamp(15px,1.3vw,20px);margin-top:1.4vh;max-width:24ch;position:relative}
+.jc b{position:absolute;right:6%;top:-4%;font-size:clamp(140px,20vw,280px);line-height:1;letter-spacing:-.06em;opacity:.16}
+.mf{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:14vh 4vw}
+.mf p{font-size:clamp(40px,9.4vw,170px);line-height:.88;letter-spacing:-.055em;font-weight:600}.mf em{color:var(--ac);font-style:normal}
+.mf .mn{margin-top:5vh;max-width:46ch;color:var(--mu);font-size:clamp(16px,1.5vw,22px);line-height:1.35}
+.cta{padding:16vh 4vw 14vh;display:flex;flex-direction:column;gap:6vh;align-items:flex-start;background:var(--ac);color:#0a2118;border-radius:36px 36px 0 0}
+.cta .pb{background:#0a2118;color:var(--ac)}footer{background:var(--ac);color:#0a2118}footer a:hover{color:#fff}
+@media (max-width:900px){.show{grid-template-columns:1fr;padding-top:14vh}.jh{width:70vw}}
+
+</style>
+</head>
+<body>
+<div class="cur"></div>
+<nav class="project-nav"><div class="nav-inner"><a href="index.html" class="brand">Krish Parmar</a><div class="nav-links"><a href="index.html#process">Process</a><a href="index.html#work">Work</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a></div><a class="nav-cta" href="https://pravaha-kc.vercel.app/" target="_blank" rel="noopener">Open live project ↗</a></div></nav>
+
+<header class="hero"><canvas id="flow" aria-hidden="true"></canvas>
+<span class="eyebrow">Case Study</span>
+<h1 class="hl">Pravaha</h1>
+<div class="hrow"><p class="lead">A cultural platform made to turn community energy into a conversion-focused digital experience.</p>
+<div class="hm"><div class="mb"><span>Type</span><strong>Platform</strong></div><div class="mb"><span>Role</span><strong>Product</strong></div><div class="mb"><span>Stack</span><strong>React</strong></div></div></div></header>
+<section class="show">
+<div class="stage" role="img" aria-label="Pravaha connects people, communities, stories, and local gatherings">
+<div class="ring in"></div>
+<div class="ring out">
+<div class="arm" style="transform:rotate(0deg)"><div class="mc"><i>◎</i><div><strong>Find your people</strong><small>Communities</small></div></div></div>
+<div class="arm" style="transform:rotate(90deg)"><div class="mc"><i>✳</i><div><strong>Share a story</strong><small>Culture in motion</small></div></div></div>
+<div class="arm" style="transform:rotate(180deg)"><div class="mc"><i>↗</i><div><strong>Meet in real life</strong><small>Local gatherings</small></div></div></div>
+<div class="arm" style="transform:rotate(270deg)"><div class="mc"><i>♡</i><div><strong>Keep it flowing</strong><small>People to people</small></div></div></div>
+</div>
+<div class="hub"><div><strong>Pravaha</strong><small>community</small></div></div></div>
+<aside class="side up"><span class="sl">Built around people</span><h3>Culture grows when we show up together.</h3><p>Pravaha brings communities, stories, and events into one place—then makes it easy to take part.</p><div class="pr"><i>↗</i><span>From shared interest to shared experience</span></div></aside>
+</section>
+<section class="tc"><div><span class="sl">The challenge</span><h2 data-words>Bring culture online without losing its soul.</h2></div><div class="copy up">The goal was to turn a broad cultural ecosystem into a focused, emotionally engaging experience where people could discover events, connect with communities, and participate with ease.</div></section>
+<section class="jw"><div class="jt">
+<div class="jh"><span class="sl">The journey</span><h2>Four steps from curious to connected.</h2></div>
+<article class="jc" data-h><b>01</b><small>01 / DISCOVER</small><div><h3>Find your people</h3><p>Meet the communities shaping the culture.</p></div></article>
+<article class="jc" data-h><b>02</b><small>02 / EXPLORE</small><div><h3>Follow a story</h3><p>See what is happening and why it matters.</p></div></article>
+<article class="jc" data-h><b>03</b><small>03 / JOIN</small><div><h3>Show up together</h3><p>Turn interest into real participation.</p></div></article>
+<article class="jc" data-h><b>04</b><small>04 / SHARE</small><div><h3>Keep it moving</h3><p>Let every experience lead to another.</p></div></article>
+</div></section>
+<section class="tc"><div><span class="sl">Approach</span><h2 data-words>Design for emotion, structure for trust.</h2></div><div class="copy up">I focused on nature-inspired color, strong narrative rhythm, and a clean information hierarchy so the platform felt exciting but still easy to navigate. It had to feel energetic without being chaotic.</div></section>
+<section class="tc"><div><span class="sl">Product principle</span><h2 data-words>Make the community the interface.</h2></div><div class="copy up">The experience is organized around people and shared moments, not a catalogue of disconnected events. That narrative gives the platform warmth while keeping the route to participation clear.</div></section>
+<section class="mf"><p><span data-words>Culture is not content.</span><br><em data-words>It is people showing up.</em></p><div class="mn up">Pravaha puts community first, then gives every event, story, and shared moment a place to flow.</div></section>
+<section class="cta"><h3>Want a product that feels as meaningful as it performs?</h3><a class="pb" href="index.html#contact" data-mag data-h>Let’s build it</a></section>
+
+<section class="project-next">
+  <a class="project-next__link" href="studynest.html"><small>Next project</small><span>StudyNest →</span></a>
+  <footer class="project-footer">
+    <a href="mailto:krishparmar066@gmail.com">krishparmar066@gmail.com</a>
+    <a href="https://www.linkedin.com/in/krish-parmar-108a39400" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/krish-ec" target="_blank" rel="noopener">GitHub</a>
+    <a href="index.html#work">All work</a>
+  </footer>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+if(!window.gsap||!window.ScrollTrigger){document.querySelectorAll('.cur').forEach(function(c){c.style.display='none'});return}
+gsap.registerPlugin(ScrollTrigger);
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,fine=matchMedia('(hover:hover)').matches,mx=innerWidth/2,my=innerHeight/2,hv=true;
+if(window.Lenis&&!reduce){var lz=new Lenis({lerp:.09});lz.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lz.raf(t*1000)});gsap.ticker.lagSmoothing(0)}
+var cu=document.querySelector('.cur'),cx=mx,cy=my;
+addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY});
+document.querySelectorAll('a,[data-h]').forEach(function(el){el.addEventListener('mouseenter',function(){cu.classList.add('big')});el.addEventListener('mouseleave',function(){cu.classList.remove('big')})});
+gsap.ticker.add(function(){cx+=(mx-cx)*.2;cy+=(my-cy)*.2;cu.style.transform='translate('+cx+'px,'+cy+'px)'});
+ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom top',onToggle:function(s){hv=s.isActive}});
+// hero title: letters rise, weight follows the cursor
+var hl=document.querySelector('.hl'),ch=[];
+if(hl){var tx=hl.textContent,ln=document.createElement('span');hl.textContent='';hl.setAttribute('aria-label',tx);ln.className='ln';ln.setAttribute('aria-hidden','true');
+  tx.split('').forEach(function(c){var e=document.createElement('span');e.className='ch';e.textContent=c;ln.appendChild(e);ch.push(e)});hl.appendChild(ln);
+  if(!reduce)gsap.from(ch,{yPercent:115,rotate:6,duration:1.3,ease:'expo.out',stagger:.045,delay:.25});
+  if(fine&&!reduce)gsap.ticker.add(function(){if(!hv)return;ch.forEach(function(e){var r=e.getBoundingClientRect(),d=Math.hypot(mx-r.left-r.width/2,my-r.top-r.height/2);e.style.fontVariationSettings="'wght' "+Math.round(300+Math.max(0,1-d/380)*500)})})}
+// words fade in with scroll
+document.querySelectorAll('[data-words]').forEach(function(el){el.innerHTML=el.textContent.trim().split(/\s+/).map(function(x){return '<span class="w">'+x+'</span>'}).join(' ');
+  if(!reduce)gsap.fromTo(el.querySelectorAll('.w'),{opacity:.16},{opacity:1,stagger:.1,ease:'none',scrollTrigger:{trigger:el,start:'top 85%',end:'bottom 55%',scrub:true}})});
+if(!reduce)gsap.utils.toArray('.up').forEach(function(el){gsap.from(el,{y:40,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%',toggleActions:'play none none reverse'}})});
+document.querySelectorAll('[data-mag]').forEach(function(el){el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();gsap.to(el,{x:(e.clientX-r.left-r.width/2)*.4,y:(e.clientY-r.top-r.height/2)*.4,duration:.4})});el.addEventListener('mouseleave',function(){gsap.to(el,{x:0,y:0,duration:.9,ease:'elastic.out(1,.4)'})})});
+
+// flowing threads behind the title
+var cv=document.getElementById('flow'),c=cv.getContext('2d'),W,H,dp=Math.min(devicePixelRatio||1,2),Ls=[];
+function sz(){W=cv.offsetWidth;H=cv.offsetHeight;cv.width=W*dp;cv.height=H*dp;c.setTransform(dp,0,0,dp,0,0);Ls=[];var n=innerWidth<700?18:34;for(var i=0;i<n;i++)Ls.push({b:H*(.12+.78*i/n),a:14+i*2.2,s:.25+(i%5)*.06,p:i*.4})}
+function yy(l,x,t,px,py){var y=l.b+Math.sin(x*.004+t*l.s+l.p)*l.a+Math.sin(x*.012+t*.5+l.p*2)*l.a*.3,d=x-px;return y+(py-y)*Math.exp(-d*d/60000)*.28}
+function draw(t){var r=cv.getBoundingClientRect(),px=mx-r.left,py=my-r.top;c.clearRect(0,0,W,H);
+  Ls.forEach(function(l,i){c.beginPath();for(var x=0;x<=W;x+=14){var y=yy(l,x,t,px,py);x?c.lineTo(x,y):c.moveTo(x,y)}c.strokeStyle='rgba(201,255,92,'+(.1+.1*(i%3))+')';c.lineWidth=1;c.stroke();
+    var u=((t*.2*l.s+l.p)%1+1)%1,dx=u*W;c.fillStyle=i%4?'#c9ff5c':'#ffb59e';c.beginPath();c.arc(dx,yy(l,dx,t,px,py),2.2,0,6.283);c.fill()})}
+sz();draw(0);addEventListener('resize',function(){sz();draw(0)});
+if(!reduce)gsap.ticker.add(function(t){if(hv)draw(t)});
+// orbit: community map turns with scroll, cards stay upright
+var mcs=gsap.utils.toArray('.mc');
+gsap.set(mcs,{xPercent:-50,yPercent:-50,rotation:function(i){return -i*90}});
+if(!reduce){gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:'.show',start:'top bottom',end:'bottom top',scrub:1}})
+  .to('.out',{rotation:240},0).to(mcs,{rotation:function(i){return -i*90-240}},0).to('.in',{rotation:-180},0).fromTo('.hub',{scale:.7},{scale:1.08},0);
+  var jt=document.querySelector('.jt');
+  gsap.to(jt,{x:function(){return -(jt.scrollWidth-innerWidth)},ease:'none',scrollTrigger:{trigger:'.jw',pin:true,scrub:1,end:function(){return '+='+(jt.scrollWidth-innerWidth)},invalidateOnRefresh:true}})}
+
+})();
+</script>
+<script src="js/cursor.js"></script>
+</body>
+</html>
