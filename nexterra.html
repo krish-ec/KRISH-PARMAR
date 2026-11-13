@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-cursor-theme="nexterra">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NexTerra — Krish Parmar</title>
+<meta name="description" content="NexTerra: an urban heat intelligence planning demo. Drag cooling solutions onto a neighbourhood heat map and see the difference.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/nexterra.css">
+<link rel="stylesheet" href="css/hero-fx.css">
+<link rel="stylesheet" href="css/cursor.css">
+</head>
+<body>
+
+<nav class="nt-nav">
+  <a href="index.html" class="nt-back">← Krish Parmar</a>
+  <div>
+    <a href="#overview">Overview</a>
+    <a href="#play">Play</a>
+    <a href="#features">Features</a>
+    <a href="#outcome">Outcome</a>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<header class="nt-hero" id="top">
+  <div class="sun-wrap" aria-hidden="true">
+    <svg class="sun" id="heroSun" viewBox="0 0 300 300" data-burst>
+      <defs>
+        <linearGradient id="sunG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#d8523e"/>
+          <stop offset=".4" stop-color="#ee9b45"/>
+          <stop offset=".7" stop-color="#f2d477"/>
+          <stop offset="1" stop-color="#b8d9c5"/>
+        </linearGradient>
+      </defs>
+      <g class="sun-rays" id="heroRays">
+        <g stroke="#18332a" stroke-width="5" stroke-linejoin="round" fill="#f2d477">
+          <rect x="138" y="6" width="24" height="46" rx="12"/>
+          <rect x="138" y="6" width="24" height="46" rx="12" transform="rotate(45 150 150)"/>
+          <rect x="138" y="6" width="24" height="46" rx="12" transform="rotate(90 150 150)"/>
+          <rect x="138" y="6" width="24" height="46" rx="12" transform="rotate(135 150 150)"/>
+          <rect x="138" y="6" width="24" height="46" rx="12" transform="rotate(180 150 150)"/>
+          <rect x="138" y="6" width="24" height="46" rx="12" transform="rotate(225 150 150)"/>
+          <rect x="138" y="6" width="24" height="46" rx="12" transform="rotate(270 150 150)"/>
+          <rect x="138" y="6" width="24" height="46" rx="12" transform="rotate(315 150 150)"/>
+        </g>
+      </g>
+      <g id="heroFace">
+        <circle cx="158" cy="158" r="86" fill="#18332a"/>
+        <circle cx="150" cy="150" r="86" fill="url(#sunG)" stroke="#18332a" stroke-width="6"/>
+        <ellipse class="eye" cx="122" cy="138" rx="9" ry="14" fill="#18332a"/>
+        <ellipse class="eye" cx="178" cy="138" rx="9" ry="14" fill="#18332a"/>
+        <circle cx="104" cy="168" r="11" fill="#e17b67" opacity=".55"/>
+        <circle cx="196" cy="168" r="11" fill="#e17b67" opacity=".55"/>
+        <path id="heroMouth" d="M132 170q18 20 36 0" fill="none" stroke="#18332a" stroke-width="7" stroke-linecap="round"/>
+      </g>
+      <path class="twk" d="M262 40l5 14 14 5-14 5-5 14-5-14-14-5 14-5z" fill="#1b7f70"/>
+      <path class="twk" d="M30 230l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#18332a"/>
+    </svg>
+  </div>
+
+  <div class="nt-wrap hero-in">
+    <p class="kick">Case study 05 · Urban heat intelligence</p>
+    <h1 class="nt-title" id="ntTitle" aria-label="NexTerra"><span class="ln"><span class="ink">Nex</span><span class="blu">Terra</span></span></h1>
+    <p class="hero-sub">Drag a tree onto a hot street and watch the neighbourhood cool down.</p>
+
+    <dl class="meta">
+      <div><dt>Role</dt><dd>Concept · UI · Front-end</dd></div>
+      <div><dt>Year</dt><dd>2026 · Prototype</dd></div>
+      <div><dt>Stack</dt><dd>HTML · CSS · JavaScript · GSAP</dd></div>
+      <div><dt>Live</dt><dd><a href="https://next-erra.vercel.app/" target="_blank" rel="noopener" class="live" data-mag>next-erra.vercel.app ↗</a></dd></div>
+    </dl>
+
+    <div class="stats">
+      <div class="stat pop"><b><span data-count="39.2" data-dec="1">39.2</span><i>°C</i></b><small>Baseline in the demo</small></div>
+      <div class="stat pop"><b><span data-count="3" data-dec="0">3</span></b><small>Cooling tools in this teaser</small></div>
+      <div class="stat pop"><b><span data-count="8" data-dec="0">8</span></b><small>Cooling solutions in the full demo</small></div>
+    </div>
+    <p class="disc">Illustrative demo data. Not live measurements.</p>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Scroll</div>
+</header>
+
+<!-- 2. OVERVIEW -->
+<section class="nt-sec" id="overview">
+  <div class="nt-wrap two">
+    <div class="rv"><span class="tag">01 / Overview</span><h2>A planning toy that <em>feels</em> like a real tool.</h2></div>
+    <div class="rv">
+      <p>NexTerra is an urban heat intelligence planning demo. You drag cooling solutions from a toolbox of eight onto a schematic neighbourhood heat map, then flip between <b>Current situation</b> and <b>After implementation</b>.</p>
+      <p>It shows a baseline against an after temperature (the baseline is 39.2°C), plus co-benefits: CO₂e per year, energy per year, water retained and a comfort index. Demo cities are Bengaluru and Vadodara.</p>
+      <ul class="chips"><li>Heat map</li><li>8-solution toolbox</li><li>Bengaluru</li><li>Vadodara</li><li>Guided tour</li><li>Terra assistant</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PROBLEM -->
+<section class="nt-sec alt" id="problem">
+  <div class="nt-wrap two">
+    <div class="rv"><span class="tag">02 / Problem</span><h2>Heat is hard to <em>picture.</em></h2></div>
+    <div class="rv">
+      <p>Heat planning usually lives in reports and static maps. It is hard to feel what a row of trees, a cool roof or a pond would actually change on a particular street.</p>
+      <p>The goal: make the trade-offs visible and playful enough that anyone can try them, while staying honest that the numbers are illustrative.</p>
+      <div class="note box pop">Demo data only. Nothing here is a live measurement.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ROLE -->
+<section class="nt-sec" id="role">
+  <div class="nt-wrap">
+    <div class="rv"><span class="tag">03 / My role</span><h2>What I <em>did.</em></h2></div>
+    <div class="roles">
+      <div class="box pop rv"><span>Role</span><b>Concept, UI &amp; front-end</b></div>
+      <div class="box pop rv"><span>Team</span><b>Independent project</b></div>
+      <div class="box pop rv"><span>Timeline</span><b>2026 · Prototype</b></div>
+      <div class="box pop rv"><span>Stack</span><b>HTML, CSS, JavaScript &amp; GSAP</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. PROCESS -->
+<section class="nt-sec alt" id="process">
+  <div class="nt-wrap">
+    <div class="rv"><span class="tag">04 / Process</span><h2>From a hot map to a <em>playable</em> one.</h2></div>
+    <ol class="steps">
+      <li class="box pop rv"><span>01</span><h3>Frame the question</h3><p>What would someone want to try first on a hot street?</p></li>
+      <li class="box pop rv"><span>02</span><h3>Keep the map schematic</h3><p>A simple heat map reads faster than a detailed one.</p></li>
+      <li class="box pop rv"><span>03</span><h3>Make it playable</h3><p>Drag, drop, see the change. Levels and points reward trying more.</p></li>
+      <li class="box pop rv"><span>04</span><h3>Explain it</h3><p>A tour, a scripted assistant and an action plan turn play into a plan.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- PLAYGROUND TEASER -->
+<section class="nt-sec play" id="play">
+  <div class="nt-wrap">
+    <div class="rv"><span class="tag">Try it</span><h2>Cool the block. <em>Drag a sticker.</em></h2>
+      <p class="lead">A tiny taste of the real planner. Drag a sticker onto the map (or tap one to drop it on the hottest spot).</p></div>
+
+    <div class="pg">
+      <div class="pg-mapbox box">
+        <div class="pg-map" id="pgMap" aria-label="Playable heat map teaser"><div class="pg-grid" id="pgGrid"></div><div class="pg-layer" id="pgLayer"></div></div>
+        <p class="disc in">Illustrative demo data. Not live measurements.</p>
+      </div>
+
+      <aside class="pg-side">
+        <div class="ticker box">
+          <small>Teaser temperature</small>
+          <div class="temp"><span id="pgTemp">39.2</span><i>°C</i></div>
+          <small class="sub" id="pgDelta">Baseline 39.2°C</small>
+        </div>
+
+        <div class="lvl box">
+          <div class="lvl-top"><b>Level <span id="pgLvl">1</span></b><span><span id="pgPts">0</span> pts</span></div>
+          <div class="lvl-bar" id="pgBar"><i id="pgFill"></i>
+            <svg class="lvl-mascot" id="pgMascot" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="22" fill="#f2d477" stroke="#18332a" stroke-width="4"/><ellipse class="eye" cx="22" cy="27" rx="3" ry="5" fill="#18332a"/><ellipse class="eye" cx="38" cy="27" rx="3" ry="5" fill="#18332a"/><path id="pgSmile" d="M23 36q7 6 14 0" fill="none" stroke="#18332a" stroke-width="3.5" stroke-linecap="round"/></svg>
+          </div>
+          <p class="lvl-msg" id="pgMsg">Drop 5 stickers to level up.</p>
+        </div>
+
+        <div class="tray box" id="pgTray">
+          <small>Toolbox (3 of 8)</small>
+          <div class="tray-row">
+            <button class="stk" data-type="tree" aria-label="Add a tree"><span class="ico"></span><em>Tree</em></button>
+            <button class="stk" data-type="roof" aria-label="Add a cool roof"><span class="ico"></span><em>Cool roof</em></button>
+            <button class="stk" data-type="water" aria-label="Add water"><span class="ico"></span><em>Water</em></button>
+          </div>
+        </div>
+        <button class="btn ghost" id="pgReset" data-mag>Reset map</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SCROLL-SCRUBBED CURRENT → AFTER -->
+<section class="blend" id="blendSec">
+  <div class="blend-in">
+    <div class="nt-wrap">
+      <span class="tag">Current → After</span>
+      <h2>Keep scrolling. <em>Watch it cool.</em></h2>
+      <div class="blend-labels"><span id="lblA" class="on">Current situation</span><span id="lblB">After implementation</span></div>
+      <div class="blend-map box" id="blendMap">
+        <div class="bm-layer" id="bmA"></div>
+        <div class="bm-layer after" id="bmB"></div>
+        <svg class="bm-sun" id="bmSun" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><linearGradient id="bmG" x1="0" y1="0" x2="0" y2="1"><stop id="bmS1" offset="0" stop-color="#d8523e"/><stop id="bmS2" offset=".55" stop-color="#ee9b45"/><stop id="bmS3" offset="1" stop-color="#f2d477"/></linearGradient></defs>
+          <circle cx="64" cy="64" r="40" fill="#18332a"/><circle cx="60" cy="60" r="40" fill="url(#bmG)" stroke="#18332a" stroke-width="4"/>
+          <ellipse class="eye" cx="47" cy="54" rx="4" ry="7" fill="#18332a"/><ellipse class="eye" cx="73" cy="54" rx="4" ry="7" fill="#18332a"/>
+          <path d="M50 70q10 10 20 0" fill="none" stroke="#18332a" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="blend-slider" aria-hidden="true"><i id="bsFill"></i><b id="bsThumb"></b></div>
+      <label class="blend-range"><span>Move the slider</span><input type="range" id="blendRange" min="0" max="100" value="0" aria-label="Blend between current situation and after implementation"></label>
+      <p class="disc">Baseline 39.2°C · Illustrative demo data. Not live measurements.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. FEATURES (zig-zag, split by freeze) -->
+<section class="nt-sec feats" id="features">
+  <div class="nt-wrap">
+    <div class="rv"><span class="tag">05 / Key features</span><h2>What's <em>inside.</em></h2></div>
+
+    <article class="feat rv">
+      <div class="stk-card box" data-burst>
+        <svg viewBox="0 0 320 220" id="sTour" role="img" aria-label="Animated guided tour spotlight">
+          <defs><mask id="tm"><rect width="320" height="220" fill="#fff"/><rect id="tHole" x="20" y="20" width="100" height="100" rx="14" fill="#000"/></mask></defs>
+          <rect x="6" y="6" width="308" height="208" rx="18" fill="#fff" stroke="#18332a" stroke-width="4"/>
+          <rect x="24" y="24" width="92" height="92" rx="12" fill="#b8d9c5" stroke="#18332a" stroke-width="3"/>
+          <rect x="128" y="24" width="164" height="34" rx="10" fill="#f2d477" stroke="#18332a" stroke-width="3"/>
+          <rect x="128" y="70" width="164" height="46" rx="10" fill="#1b7f70" stroke="#18332a" stroke-width="3"/>
+          <rect x="24" y="128" width="268" height="62" rx="12" fill="#f3f1e5" stroke="#18332a" stroke-width="3"/>
+          <g mask="url(#tm)"><rect x="6" y="6" width="308" height="208" rx="18" fill="#18332a" opacity=".8"/></g>
+        </svg>
+      </div>
+      <div class="feat-tx"><span class="no">A</span><h3>Guided tour</h3><p>A spotlight walks first-time visitors through the map, the toolbox and the results, one step at a time.</p></div>
+    </article>
+
+    <article class="feat flip rv">
+      <div class="stk-card box" data-burst>
+        <svg viewBox="0 0 320 220" id="sChat" role="img" aria-label="Animated assistant typing">
+          <rect x="6" y="6" width="308" height="208" rx="18" fill="#fff" stroke="#18332a" stroke-width="4"/>
+          <g class="c-user"><rect x="120" y="26" width="170" height="40" rx="20" fill="#1b7f70" stroke="#18332a" stroke-width="3"/><rect x="140" y="42" width="110" height="8" rx="4" fill="#fff"/></g>
+          <g class="c-face"><circle cx="46" cy="118" r="22" fill="#f2d477" stroke="#18332a" stroke-width="3"/><ellipse class="eye" cx="39" cy="115" rx="2.8" ry="4.5" fill="#18332a"/><ellipse class="eye" cx="53" cy="115" rx="2.8" ry="4.5" fill="#18332a"/><path d="M40 125q6 5 12 0" fill="none" stroke="#18332a" stroke-width="3" stroke-linecap="round"/></g>
+          <rect x="78" y="86" width="214" height="86" rx="22" fill="#f3f1e5" stroke="#18332a" stroke-width="3"/>
+          <g class="c-dots"><circle cx="120" cy="129" r="7" fill="#18332a"/><circle cx="148" cy="129" r="7" fill="#18332a"/><circle cx="176" cy="129" r="7" fill="#18332a"/></g>
+          <g class="c-lines"><rect x="98" y="104" width="170" height="9" rx="4.5" fill="#b8d9c5"/><rect x="98" y="124" width="140" height="9" rx="4.5" fill="#f2d477"/><rect x="98" y="144" width="100" height="9" rx="4.5" fill="#1b7f70"/></g>
+        </svg>
+      </div>
+      <div class="feat-tx"><span class="no">B</span><h3>Terra assistant</h3><p>A scripted assistant answers common questions about the map and the solutions. It is a guided helper, not a live AI.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- 5. PINNED FREEZE WIPE -->
+<section class="freeze" id="freeze" aria-label="Freeze frame transition">
+  <div class="fz-stage">
+    <div class="fz-warm"><div><small>Heat on</small><h2>Still too hot?</h2></div></div>
+    <div class="fz-ice" id="fzIce"><div><small>Freeze frame</small><h2>Now it's <em>cooler.</em></h2><p>Co-benefits and an action plan come next.</p></div></div>
+  </div>
+</section>
+
+<section class="nt-sec feats b">
+  <div class="nt-wrap">
+    <article class="feat rv">
+      <div class="stk-card box" data-burst>
+        <svg viewBox="0 0 320 220" id="sBen" role="img" aria-label="Animated co-benefit meters">
+          <rect x="6" y="6" width="308" height="208" rx="18" fill="#fff" stroke="#18332a" stroke-width="4"/>
+          <g class="tile"><rect x="20" y="20" width="132" height="86" rx="14" fill="#b8d9c5" stroke="#18332a" stroke-width="3"/><circle cx="56" cy="56" r="18" fill="none" stroke="#18332a" stroke-width="8" opacity=".25"/><circle class="ring" cx="56" cy="56" r="18" fill="none" stroke="#18332a" stroke-width="8" stroke-linecap="round" stroke-dasharray="113.1" stroke-dashoffset="113.1" transform="rotate(-90 56 56)"/><text x="86" y="52" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#18332a">CO₂e</text><text x="86" y="70" font-family="Bricolage Grotesque,sans-serif" font-weight="600" font-size="12" fill="#18332a">per year</text></g>
+          <g class="tile"><rect x="168" y="20" width="132" height="86" rx="14" fill="#f2d477" stroke="#18332a" stroke-width="3"/><circle cx="204" cy="56" r="18" fill="none" stroke="#18332a" stroke-width="8" opacity=".25"/><circle class="ring" cx="204" cy="56" r="18" fill="none" stroke="#18332a" stroke-width="8" stroke-linecap="round" stroke-dasharray="113.1" stroke-dashoffset="113.1" transform="rotate(-90 204 56)"/><text x="234" y="52" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#18332a">Energy</text><text x="234" y="70" font-family="Bricolage Grotesque,sans-serif" font-weight="600" font-size="12" fill="#18332a">per year</text></g>
+          <g class="tile"><rect x="20" y="116" width="132" height="86" rx="14" fill="#1b7f70" stroke="#18332a" stroke-width="3"/><circle cx="56" cy="152" r="18" fill="none" stroke="#fff" stroke-width="8" opacity=".3"/><circle class="ring" cx="56" cy="152" r="18" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-dasharray="113.1" stroke-dashoffset="113.1" transform="rotate(-90 56 152)"/><text x="86" y="148" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#fff">Water</text><text x="86" y="166" font-family="Bricolage Grotesque,sans-serif" font-weight="600" font-size="12" fill="#fff">retained</text></g>
+          <g class="tile"><rect x="168" y="116" width="132" height="86" rx="14" fill="#f3f1e5" stroke="#18332a" stroke-width="3"/><circle cx="204" cy="152" r="18" fill="none" stroke="#18332a" stroke-width="8" opacity=".25"/><circle class="ring" cx="204" cy="152" r="18" fill="none" stroke="#18332a" stroke-width="8" stroke-linecap="round" stroke-dasharray="113.1" stroke-dashoffset="113.1" transform="rotate(-90 204 152)"/><text x="234" y="148" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#18332a">Comfort</text><text x="234" y="166" font-family="Bricolage Grotesque,sans-serif" font-weight="600" font-size="12" fill="#18332a">index</text></g>
+        </svg>
+      </div>
+      <div class="feat-tx"><span class="no">C</span><h3>Co-benefits</h3><p>Beyond temperature, each plan reports CO₂e per year, energy per year, water retained and a comfort index. The meters here are decorative; the real figures are in the demo.</p></div>
+    </article>
+
+    <article class="feat flip rv">
+      <div class="stk-card box" data-burst>
+        <svg viewBox="0 0 320 220" id="sPlan" role="img" aria-label="Animated action plan checklist">
+          <rect x="6" y="6" width="308" height="208" rx="18" fill="#fff" stroke="#18332a" stroke-width="4"/>
+          <rect x="6" y="6" width="308" height="36" rx="18" fill="#1b7f70" stroke="#18332a" stroke-width="4"/>
+          <text x="26" y="31" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="16" fill="#fff">Action plan</text>
+          <g class="row"><rect x="26" y="58" width="26" height="26" rx="7" fill="#f3f1e5" stroke="#18332a" stroke-width="3"/><path class="tick" d="M31 71l6 6 10-13" fill="none" stroke="#1b7f70" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="30" stroke-dashoffset="30"/><text x="66" y="77" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="16" fill="#18332a">Plant trees</text><rect class="strike" x="66" y="70" width="110" height="3" fill="#18332a" transform-origin="66px 71px" style="transform:scaleX(0)"/></g>
+          <g class="row"><rect x="26" y="98" width="26" height="26" rx="7" fill="#f3f1e5" stroke="#18332a" stroke-width="3"/><path class="tick" d="M31 111l6 6 10-13" fill="none" stroke="#1b7f70" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="30" stroke-dashoffset="30"/><text x="66" y="117" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="16" fill="#18332a">Cool the roofs</text><rect class="strike" x="66" y="110" width="130" height="3" fill="#18332a" transform-origin="66px 111px" style="transform:scaleX(0)"/></g>
+          <g class="row"><rect x="26" y="138" width="26" height="26" rx="7" fill="#f3f1e5" stroke="#18332a" stroke-width="3"/><path class="tick" d="M31 151l6 6 10-13" fill="none" stroke="#1b7f70" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="30" stroke-dashoffset="30"/><text x="66" y="157" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="16" fill="#18332a">Add water</text><rect class="strike" x="66" y="150" width="98" height="3" fill="#18332a" transform-origin="66px 151px" style="transform:scaleX(0)"/></g>
+          <g class="row"><rect x="26" y="178" width="26" height="26" rx="7" fill="#f3f1e5" stroke="#18332a" stroke-width="3"/><path class="tick" d="M31 191l6 6 10-13" fill="none" stroke="#1b7f70" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="30" stroke-dashoffset="30"/><text x="66" y="197" font-family="Bricolage Grotesque,sans-serif" font-weight="700" font-size="16" fill="#18332a">Review impact</text><rect class="strike" x="66" y="190" width="126" height="3" fill="#18332a" transform-origin="66px 191px" style="transform:scaleX(0)"/></g>
+        </svg>
+      </div>
+      <div class="feat-tx"><span class="no">D</span><h3>Action plan</h3><p>Pick solutions, then turn them into a checklist you can actually act on.</p></div>
+    </article>
+
+    <div class="also rv"><h3>Also inside</h3>
+      <ul class="chips"><li>Hotspot drivers</li><li>Gamified planner · levels + points</li><li>Baseline vs after temperature</li><li>Bengaluru · Vadodara</li></ul></div>
+  </div>
+</section>
+
+<!-- OUTCOME -->
+<section class="nt-sec alt" id="outcome">
+  <div class="nt-wrap two">
+    <div class="rv"><span class="tag">06 / Outcome</span><h2>What <em>came out.</em></h2></div>
+    <div class="rv">
+      <div class="box pop big-ph">An interactive prototype for exploring urban-heat interventions. The maps and metrics use illustrative demo data; real-world impact has not been measured.</div>
+      <p class="disc">All figures in NexTerra are illustrative demo data, not live measurements.</p>
+      <a class="btn" href="https://next-erra.vercel.app/" target="_blank" rel="noopener" data-mag>Open the live demo ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT PROJECT -->
+<section class="nextp" id="next">
+  <a href="index.html#work" data-mag data-burst><small>Selected work</small><span>Projects →</span></a>
+  <footer>
+    <a href="mailto:krishparmar066@gmail.com">krishparmar066@gmail.com</a>
+    <a href="https://www.linkedin.com/in/krish-parmar-108a39400" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/krish-ec" target="_blank" rel="noopener">GitHub</a>
+    <a href="index.html#work">All work</a>
+  </footer>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/nexterra.js"></script>
+<script src="js/hero-fx.js"></script>
+</body>
+</html>
