@@ -1,0 +1,13 @@
+/* Hero FX layer (sticker pile + kinetic letters) */
+.hero-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.hfx-l{display:inline-block;will-change:transform,scale,rotate,translate}
+.hero-fx-hint{
+  position:absolute;left:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,36px);z-index:3;
+  font:800 14px/1 'Bricolage Grotesque',system-ui,sans-serif;color:#18332a;background:#f2d477;
+  border:3px solid #18332a;border-radius:99px;padding:9px 16px;box-shadow:4px 4px 0 #18332a;
+  opacity:0;transform:translateY(12px) rotate(-3deg);pointer-events:none;
+  transition:opacity .4s,transform .6s cubic-bezier(.34,1.56,.64,1)
+}
+.hero-fx-hint.on{opacity:1;transform:translateY(0) rotate(-3deg)}
+@media(max-width:560px){.hero-fx-hint{display:none}}
+@media(prefers-reduced-motion:reduce){.hero-fx-hint{display:none}.hfx-l{will-change:auto}}
